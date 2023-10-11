@@ -19,8 +19,13 @@ function App() {
 
       try {
         const user = await SharebnbApi.getUser(username);
+        setCurrentUser(user);
+        setIsLoaded(true);
+      } catch (err) {
+        console.error(err);
       }
     }
+    token ? fetchCurrentUser() : setIsLoaded(true);
   }, [token]);
 
   return (

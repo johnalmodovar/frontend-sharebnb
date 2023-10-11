@@ -62,7 +62,11 @@ class SharebnbApi {
 
   /** Grabs user data with username */
   static async getUser(username) {
-    //TODO:
+    const response = await fetch(`${BASE_URL}/users/${username}`);
+
+    const user = await response.json();
+
+    return user;
   }
 
   //TODO: listing stuff...
