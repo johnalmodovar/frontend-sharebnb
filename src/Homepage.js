@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import userContext from "./userContext";
+import { Link } from "react-router-dom";
 
 /**
  * Homepage: Renders welcome message to logged in users or links to signup/login

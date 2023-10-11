@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import SharebnbApi from "./api";
-import userContext from "../userContext";
+import userContext from "./userContext";
 
 import './App.css';
 
-import Nav from "../Nav";
+import Nav from "./Nav";
 import RoutesList from "./RoutesList";
 
 
@@ -68,7 +68,7 @@ function App() {
 
   /** sets current user and token to null. */
 
-  async function logout() {
+  function logout() {
     setCurrentUser(null);
     setToken(null);
   }

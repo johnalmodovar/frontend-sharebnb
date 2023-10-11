@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import userContext from "./userContext";
 
@@ -25,7 +25,7 @@ function Nav({ logout }) {
           </Link>
         </div>
         : <div>
-          <Navlink to="/login">Login</Navlink>
+          <NavLink to="/login">Login</NavLink>
           <NavLink to="/signup">Signup</NavLink>
         </div>}
     </nav>

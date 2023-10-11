@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Alert from "./Alert";
 
 /**
  * LoginForm: Renders for for user to log in
@@ -34,6 +35,7 @@ function LoginForm({ login }) {
     const { name, value } = evt.target;
     setLoginData(l => ({ ...l, [name]: value }));
   }
+
   /** Handles login form submit
    * Calls login function and sends data to App
    * OR
@@ -41,11 +43,14 @@ function LoginForm({ login }) {
    */
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setFormErrors([]);
+
     try {
       await login(loginData);
       navigate("/");
     } catch (err) {
-      setFormErrors(err);
+      let errors = err[0].message;
+      setFormErrors(errors);
     }
   }
 
@@ -76,7 +81,7 @@ function LoginForm({ login }) {
         </div>
         <button>Submit</button>
       </form>
-      {/* TODO: Add conditional for errors, add Error/Alert component */}
+      {formErrors.length !== 0 && <Alert messages={formErrors} type={"danger"} />}
     </div>
   );
 
