@@ -49,7 +49,8 @@ function LoginForm({ login }) {
       await login(loginData);
       navigate("/");
     } catch (err) {
-      let errors = err[0].message;
+      let errors = err.message;
+      console.log(errors, "in login form");
       setFormErrors(errors);
     }
   }

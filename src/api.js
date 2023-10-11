@@ -25,7 +25,9 @@ class SharebnbApi {
         })
       }
     );
-    this.token = await response.json();
+    const tokenResponse = await response.json();
+
+    this.token = tokenResponse.token;
 
     return this.token;
   }
@@ -57,8 +59,7 @@ class SharebnbApi {
     );
     const tokenResponse = await response.json();
 
-    console.log("What is token response from api", tokenResponse);
-    this.token = tokenResponse;
+    this.token = tokenResponse.token;
 
     return this.token;
   }

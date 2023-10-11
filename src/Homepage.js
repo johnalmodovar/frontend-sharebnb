@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
  */
 function Homepage() {
   const { currentUser } = useContext(userContext);
+  console.log("currentUser in Homepage, ", currentUser);
 
   //TODO: SearchForm component on homepage
   //TODO: add slogan

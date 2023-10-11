@@ -30,9 +30,11 @@ function App() {
   useEffect(function getCurrentUser() {
     async function fetchCurrentUser() {
       const { username } = jwtDecode(token);
-
+      console.log("username in useEffect,", username);
+      console.log("currentUser in use effect, ", currentUser);
       try {
         const user = await SharebnbApi.getUser(username);
+        console.log("user in useEffect, ", user);
         setCurrentUser(user);
         setIsLoaded(true);
       } catch (err) {
@@ -43,17 +45,19 @@ function App() {
   }, [token]);
 
   useEffect(function setToken() {
+
     token
       ? localStorage.setItem("token", token)
       : localStorage.removeItem("token");
 
-  });
+  }, [token]);
   /** fetches token from backend with username/password.
    *  also sets token to state.
    */
 
   async function login(user) {
     const token = await SharebnbApi.login(user);
+
     setToken(token);
   }
 
@@ -63,6 +67,7 @@ function App() {
 
   async function signup(userData) {
     const token = await SharebnbApi.register(userData);
+    console.log("!!!TOKEN in sign up function in main app: ", token);
     setToken(token);
   }
 
