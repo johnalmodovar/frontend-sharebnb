@@ -40,9 +40,9 @@ function ListingForm({ upload }) {
     form.append("location", listingData.location);
     form.append("listedBy", listingData.listedBy);
 
-    console.log("WHAT IS FORM DATA, ", ...form);
-    //FIXME: uncomment upload and delete consolelog when ready
-    // upload(form);
+
+    console.log(...form);
+    await upload(form);
   }
 
   return (

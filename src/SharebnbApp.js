@@ -81,8 +81,10 @@ function App() {
 
   /** handles file submission for listings. */
 
-  function upload() {
-    // TODO: handles sending files to server
+  async function upload(formData) {
+
+    const listing = await SharebnbApi.addListing(formData);
+    console.log(listing);
   }
 
   //TODO: if there's time, create spinner component and render here.

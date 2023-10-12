@@ -79,13 +79,61 @@ class SharebnbApi {
     return user;
   }
 
+  /**
+   * getListing:
+   *
+   * Makes fetch request for listing based on given id
+   *
+   * Returns listing
+   *
+   */
   static async getListing(id) {
     const response = await fetch(`${BASE_URL}/listings/${id}`);
-    const listing = await response.json();
+    const data = await response.json();
 
     //TODO: if its nested, CHANGE HERE FIXME:
-    return listing;
+    return data.listing;
+  }
+
+
+  /**
+   * addListing: Posts data from form to API to create new listing
+   *
+   * Returns new listing
+   *
+   */
+  static async addListing(formData) {
+
+    const { title,
+      description,
+      price,
+      location,
+      photoFile,
+      listedBy } = formData;
+
+    const response = await fetch(`${BASE_URL}/listings/create`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": this.token
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          price,
+          location,
+          photoFile,
+          listedBy
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    return data.listing;
   }
 }
+
 
 export default SharebnbApi;
