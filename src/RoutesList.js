@@ -5,9 +5,10 @@ import Homepage from "./Homepage";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ListingList from "./ListingList";
-import ListDetail from "./ListDetail";
+import ListDetail from "./ListingDetail";
 import userContext from "./userContext";
 import { Navigate } from "react-router-dom";
+import ListingForm from "./ListingForm";
 
 /** RoutesList for Sharebnb.
  *
@@ -19,7 +20,7 @@ import { Navigate } from "react-router-dom";
  *     -> { Homepage, LoginForm, SignupForm, ListingList, ListDetail }
  */
 
-function RoutesList({ login, signup }) {
+function RoutesList({ login, signup, upload }) {
 
   const { currentUser } = useContext(userContext);
   return (
@@ -30,8 +31,7 @@ function RoutesList({ login, signup }) {
 
         {currentUser
           ? <>
-            {/* TODO: ListingList Goes Here */}
-            {/* TODO: ListDetail Goes Here */}
+            <Route path="/upload" element={<ListingForm upload={upload} />} />
           </>
           : <>
             <Route path="/login" element={<LoginForm login={login} />} />

@@ -79,6 +79,12 @@ function App() {
     setToken(null);
   }
 
+  /** handles file submission for listings. */
+
+  function upload() {
+    // TODO: handles sending files to server
+  }
+
   //TODO: if there's time, create spinner component and render here.
   if (!isLoaded) return <h1>Sharebnb Loading...</h1>;
 
@@ -92,6 +98,7 @@ function App() {
             login={login}
             signup={signup}
             logout={logout}
+            upload={upload}
           />
         </BrowserRouter>
       </userContext.Provider>

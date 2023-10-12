@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SharebnbApi from "./api";
 
-function ListDetail() {
+function ListingDetail() {
   const { id } = useParams();
   const [listing, setListing] = useState(null);
 
@@ -19,7 +19,6 @@ function ListDetail() {
   }, [id]);
 
   //TODO: add loading spinner or component
-
   if (!listing) return <h1>Loading...</h1>;
 
   return (
@@ -34,4 +33,4 @@ function ListDetail() {
 
 }
 
-export default ListDetail;
+export default ListingDetail;
