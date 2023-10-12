@@ -41,7 +41,7 @@ function ListingForm({ upload }) {
     form.append("listedBy", listingData.listedBy);
 
     console.log("WHAT IS FORM DATA, ", ...form);
-
+    //FIXME: uncomment upload and delete consolelog when ready
     // upload(form);
   }
 
