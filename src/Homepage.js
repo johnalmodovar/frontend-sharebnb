@@ -17,6 +17,8 @@ function Homepage() {
   return (
     <div className="Homepage">
       <h1>ShareBnB</h1>
+      <img src="https://sharebnb-jm.s3.us-west-1.amazonaws.com/123.jpeg" />
+      <br></br>
       {currentUser ?
         <h2>Hello {currentUser.user.username}!</h2> :
         <>
