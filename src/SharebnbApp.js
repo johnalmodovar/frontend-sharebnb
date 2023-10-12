@@ -25,7 +25,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [listings, setListings] = useState([]);
+
 
   useEffect(function getCurrentUser() {
     async function fetchCurrentUser() {

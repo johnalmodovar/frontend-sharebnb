@@ -79,7 +79,13 @@ class SharebnbApi {
     return user;
   }
 
-  //TODO: listing stuff...
+  static async getListing(id) {
+    const response = await fetch(`${BASE_URL}/listings/${id}`);
+    const listing = await response.json();
+
+    //TODO: if its nested, CHANGE HERE FIXME:
+    return listing;
+  }
 }
 
 export default SharebnbApi;

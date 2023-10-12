@@ -5,7 +5,6 @@ import SharebnbApi from "./api";
 function ListDetail() {
   const { id } = useParams();
   const [listing, setListing] = useState(null);
-  //TODO: error state?
 
   useEffect(function getListingOnMount() {
     async function fetchListing() {
