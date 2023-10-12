@@ -68,7 +68,7 @@ function App() {
 
   async function signup(userData) {
     const token = await SharebnbApi.register(userData);
-    console.log("!!!TOKEN in sign up function in main app: ", token);
+
     setToken(token);
   }
 
@@ -84,7 +84,7 @@ function App() {
   async function upload(formData) {
 
     const listing = await SharebnbApi.addListing(formData);
-    console.log(listing);
+    console.log("listing in upload function in main app", listing);
   }
 
   //TODO: if there's time, create spinner component and render here.

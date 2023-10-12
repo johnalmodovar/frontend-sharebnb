@@ -108,7 +108,6 @@ class SharebnbApi {
       {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
           "authorization": this.token
         },
         body: formData,
