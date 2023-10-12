@@ -21,7 +21,7 @@ function Homepage() {
       <img src="https://sharebnb-jm.s3.us-west-1.amazonaws.com/123.jpeg" />
       <br></br>
       {currentUser ?
-        <h2>Hello {currentUser.username}!</h2> :
+        <h2>Hello {currentUser.user.username}!</h2> :
         <>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
