@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
  */
 function Homepage() {
   const { currentUser } = useContext(userContext);
-  console.log("currentUser in Homepage, ", currentUser);
 
   //TODO: SearchForm component on homepage
   //TODO: add slogan
@@ -19,7 +18,7 @@ function Homepage() {
     <div className="Homepage">
       <h1>ShareBnB</h1>
       {currentUser ?
-        <h2>Hello {currentUser.username}!</h2> :
+        <h2>Hello {currentUser.user.username}!</h2> :
         <>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>

@@ -21,7 +21,7 @@ function Nav({ logout }) {
           {/* Show All Listings */}
           {/* Add Listing Form */}
           <Link to="/" onClick={logout}>
-            {`Logout(${currentUser.username})`}
+            {`Logout(${currentUser.user.username})`}
           </Link>
         </div>
         : <div>

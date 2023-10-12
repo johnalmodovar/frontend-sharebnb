@@ -51,6 +51,7 @@ function App() {
       : localStorage.removeItem("token");
 
   }, [token]);
+
   /** fetches token from backend with username/password.
    *  also sets token to state.
    */
@@ -86,7 +87,7 @@ function App() {
     <div className="App">
       <userContext.Provider value={{ currentUser }}>
         <BrowserRouter>
-          <Nav />
+          <Nav logout={logout} />
           <RoutesList
             login={login}
             signup={signup}
