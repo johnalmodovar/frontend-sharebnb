@@ -104,34 +104,19 @@ class SharebnbApi {
    */
   static async addListing(formData) {
 
-    const { title,
-      description,
-      price,
-      location,
-      photoFile,
-      listedBy } = formData;
-
     const response = await fetch(`${BASE_URL}/listings/create`,
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           "authorization": this.token
         },
-        body: JSON.stringify({
-          title,
-          description,
-          price,
-          location,
-          photoFile,
-          listedBy
-        })
+        body: formData,
       }
     );
 
-    const data = await response.json();
-
-    return data.listing;
+    //TODO: find out what this returns later
+    //FIXME: return ^^
   }
 }
 

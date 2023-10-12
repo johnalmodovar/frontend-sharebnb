@@ -40,8 +40,6 @@ function ListingForm({ upload }) {
     form.append("location", listingData.location);
     form.append("listedBy", listingData.listedBy);
 
-
-    console.log(...form);
     await upload(form);
   }
 
