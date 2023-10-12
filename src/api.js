@@ -79,6 +79,17 @@ class SharebnbApi {
     return user;
   }
 
+  /** Grabs all listings from server.
+   * TODO: figure out how to pass down query with filter here
+   * Returns [{ id, title, description, price, location, photoUrl, listedBy }, ...]
+   */
+  static async getListings() {
+    const response = await fetch(`${BASE_URL}/listings`);
+    const data = await response.json();
+
+    return data.listings;
+  }
+
   /**
    * getListing:
    *
@@ -91,7 +102,6 @@ class SharebnbApi {
     const response = await fetch(`${BASE_URL}/listings/${id}`);
     const data = await response.json();
 
-    //TODO: if its nested, CHANGE HERE FIXME:
     return data.listing;
   }
 
@@ -114,8 +124,9 @@ class SharebnbApi {
       }
     );
 
-    //TODO: find out what this returns later
-    //FIXME: return ^^
+    const data = await response.json();
+
+    return data.listing;
   }
 }
 
