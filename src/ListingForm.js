@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
 import userContext from './userContext';
 import FormData from "form-data";
-import { useNavigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Alert from './Alert';
+
 
 function ListingForm({ upload }) {
-  const useNavigate = useNavigate();
+  const navigate = useNavigate();
 
   const { currentUser } = useContext(userContext);
   const [listingData, setListingData] = useState({

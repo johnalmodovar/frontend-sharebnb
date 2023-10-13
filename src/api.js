@@ -86,9 +86,12 @@ class SharebnbApi {
   static async getListings(searchTerm) {
     let response, data;
     if (searchTerm) {
-      let params = new URLSearchParams({ location: searchTerm });
-      response = await fetch(`${BASE_URL}/listings/${params}`);
+      let params = new URLSearchParams({ location: searchTerm }).toString();
+      console.log("params in getListing method on api class", params);
+      response = await fetch(`${BASE_URL}/listings?${params}`);
+      console.log("response in getListing method on api class", response);
       data = await response.json();
+      console.log("data in getListing method on api class", data);
     } else {
       response = await fetch(`${BASE_URL}/listings`);
       data = await response.json();
