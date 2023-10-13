@@ -26,25 +26,26 @@ function ListingDetail() {
     fetchListing();
   }, [id]);
 
-  //TODO: add loading spinner or component
   if (!listing) return <h1>Loading...</h1>;
 
   return (
     <>
-      <div className="ListDetail">
-        <img src={listing.photoUrl} />
-        <h2>{listing.title}</h2>
-        <h4>{listing.location}</h4>
-        <p>Host: {listing.listedBy}</p>
-        <p>${listing.price}</p>
-        <p>Description: {listing.description}</p>
-      </div>
-      <div>
-        <form>
-          <h4>Message the host!</h4>
-          <input />
-          <button>Submit</button>
-        </form>
+      <div className="ListDetail card">
+        <div className="card-body">
+          <img src={listing.photoUrl} />
+          <h2>{listing.title}</h2>
+          <h4>{listing.location}</h4>
+          <p>Host: {listing.listedBy}</p>
+          <p>${listing.price}</p>
+          <p>Description: {listing.description}</p>
+        </div>
+        <div>
+          <form>
+            <h4>Message the host!</h4>
+            <input />
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
     </>
   );

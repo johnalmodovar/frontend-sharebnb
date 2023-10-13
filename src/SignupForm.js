@@ -45,7 +45,7 @@ function SignupForm({ signup }) {
       await signup(signupData);
       navigate("/");
     } catch (err) {
-      let errors = err[0].message;
+      let errors = err.message;
       setFormErrors(errors);
     }
   }

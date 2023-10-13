@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import SharebnbApi from "./api";
 import userContext from "./userContext";
 
+import 'bootswatch/dist/litera/bootstrap.min.css';
 import './App.css';
 
 import Nav from "./Nav";
@@ -36,7 +37,6 @@ function App() {
 
       try {
         const user = await SharebnbApi.getUser(username);
-        console.log("user in useEffect, ", user);
         setCurrentUser(user);
         setIsLoaded(true);
       } catch (err) {

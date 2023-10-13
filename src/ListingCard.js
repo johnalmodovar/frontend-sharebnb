@@ -13,11 +13,13 @@ import React from "react";
 
 function ListingCard({ listing }) {
   return (
-    <div className="ListingCard">
-      <img src={listing.photoUrl} />
-      <h2>{listing.title}</h2>
-      <h4>{listing.location}</h4>
-      <p>{listing.price}</p>
+    <div className="ListingCard card">
+      <div className="card-body">
+        <img src={listing.photoUrl} />
+        <h2>{listing.title}</h2>
+        <h4>{listing.location}</h4>
+        <p>{listing.price}</p>
+      </div>
     </div>
   );
 }

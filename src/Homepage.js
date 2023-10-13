@@ -22,10 +22,10 @@ function Homepage() {
       {currentUser ?
         <h2>Hello {currentUser.user.username}!</h2> :
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/login"><button className="btn btn-primary">Login</button></Link>
+          <Link to="/signup"><button className="btn btn-primary">Sign Up</button></Link>
         </>}
-    </div>
+    </div >
   );
 
 }

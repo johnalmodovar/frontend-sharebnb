@@ -67,7 +67,7 @@ function ListingForm({ upload }) {
       await upload(form);
       navigate("/");
     } catch (err) {
-      let errors = err[0].message;
+      let errors = err.message;
       setFormErrors(errors);
     }
   }
@@ -102,6 +102,7 @@ function ListingForm({ upload }) {
             value={listingData.price}
             onChange={handleChange}
             className="form-control"
+            type="number"
             required
           />
         </div>
