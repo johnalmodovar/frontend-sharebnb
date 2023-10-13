@@ -3,7 +3,7 @@ import React, { useState } from "react";
 /** Renders search form for listings.
  *
  * Props:
- * - TODO:
+ * - searchTerm: string inputted from data.
  *
  * ListingList -> SearchForm
  */
@@ -18,10 +18,11 @@ function SearchForm({ search }) {
   /** call parent filter function with current search term value. */
   function handleSubmit(evt) {
     evt.preventDefault();
-    //TODO: parent function inside of ListingList
+
     search(searchTerm);
   }
 
+  //TODO: if no matches, return an element that tells user there are no matches.
   return (
     <div className="SearchForm mt-3 w-50">
       <form className="d-flex" onSubmit={handleSubmit}>

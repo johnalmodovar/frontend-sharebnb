@@ -9,6 +9,7 @@ import userContext from "./userContext";
  *
  * App -> Nav
  */
+
 function Nav({ logout }) {
   const { currentUser } = useContext(userContext);
 

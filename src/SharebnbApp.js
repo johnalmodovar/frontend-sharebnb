@@ -26,12 +26,14 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isLoaded, setIsLoaded] = useState(false);
 
-
+  /** Calls on api to grab user data and set it to current state.
+   *
+   * If no user, app still renders.
+   */
   useEffect(function getCurrentUser() {
     async function fetchCurrentUser() {
       const { username } = jwtDecode(token);
-      console.log("username in useEffect,", username);
-      console.log("currentUser in use effect, ", currentUser);
+
       try {
         const user = await SharebnbApi.getUser(username);
         console.log("user in useEffect, ", user);
@@ -44,8 +46,11 @@ function App() {
     token ? fetchCurrentUser() : setIsLoaded(true);
   }, [token]);
 
+  /** Sets token to localStorage if valid token has been sent.
+   *
+   * Otherwise, remove existing token from localStorage.
+   */
   useEffect(function setToken() {
-
     token
       ? localStorage.setItem("token", token)
       : localStorage.removeItem("token");
@@ -55,7 +60,6 @@ function App() {
   /** fetches token from backend with username/password.
    *  also sets token to state.
    */
-
   async function login(user) {
     const token = await SharebnbApi.login(user);
 
@@ -65,7 +69,6 @@ function App() {
   /** registers user to database from server with form data.
    *  sets token in state.
    */
-
   async function signup(userData) {
     const token = await SharebnbApi.register(userData);
 
@@ -73,14 +76,12 @@ function App() {
   }
 
   /** sets current user and token to null. */
-
   function logout() {
     setCurrentUser(null);
     setToken(null);
   }
 
   /** handles file submission for listings. */
-
   async function upload(formData) {
     const listing = await SharebnbApi.addListing(formData);
   }
@@ -88,7 +89,6 @@ function App() {
   //TODO: if there's time, create spinner component and render here.
   if (!isLoaded) return <h1>Sharebnb Loading...</h1>;
 
-  //TODO: pass listing state to props after creating it.
   return (
     <div className="App">
       <userContext.Provider value={{ currentUser }}>

@@ -5,9 +5,18 @@ import SearchForm from "./SearchForm";
 import SharebnbApi from "./api";
 import ListingCard from "./ListingCard";
 
+/** Renders list of listings.
+ *
+ * State:
+ * - listings: [{ id, title, description, price, location, photoUrl, listedBy }, ...]
+ *
+ * RoutesList -> ListingList
+ */
+
 function ListingList() {
   const [listings, setListings] = useState([]);
 
+  /** Fetches all listings from database. */
   useEffect(() => {
     async function fetchListings() {
       const data = await SharebnbApi.getListings();
@@ -16,6 +25,7 @@ function ListingList() {
     fetchListings();
   }, []);
 
+  /** Gets listing from database that closely matches searchTerm. */
   async function search(searchTerm) {
     const data = await SharebnbApi.getListings(searchTerm);
     setListings(data);

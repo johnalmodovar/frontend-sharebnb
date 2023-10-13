@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SharebnbApi from "./api";
 
+/** Renders component for a single listing.
+ *
+ * State:
+ * - listing: { id, title, description, price, location, photoUrl, listedBy  }
+ *
+ * RoutesList -> ListingDetail
+ */
+
 function ListingDetail() {
   const { id } = useParams();
   const [listing, setListing] = useState(null);

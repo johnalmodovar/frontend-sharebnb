@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
  * RoutesList => Homepage
  *
  */
+
 function Homepage() {
   const { currentUser } = useContext(userContext);
 
-  //TODO: SearchForm component on homepage
   //TODO: add slogan
 
   return (

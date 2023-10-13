@@ -4,6 +4,18 @@ import FormData from "form-data";
 import { useNavigate } from 'react-router-dom';
 import Alert from './Alert';
 
+/** Renders Form for adding a listing.
+ *
+ * Props:
+ * - upload(): function that adds listing to database (from parent).
+ *
+ * State:
+ * - listingData: { title, description, price, location, listedBy }
+ * - fileData: { photofile }
+ * - formErrors: ["errors", ...]
+ *
+ * RoutesList -> ListingForm
+ */
 
 function ListingForm({ upload }) {
   const navigate = useNavigate();
@@ -33,6 +45,11 @@ function ListingForm({ upload }) {
       [name]: value
     }));
   }
+
+  /** Handles submit event. Calls on parent function to add listing to database.
+   *
+   * If data is bad, throws error.
+   */
 
   async function handleSubmit(evt) {
     evt.preventDefault();

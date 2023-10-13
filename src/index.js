@@ -4,6 +4,7 @@ import './index.css';
 import App from './SharebnbApp';
 import reportWebVitals from './reportWebVitals';
 
+/** Appends App to DOM. */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <App />

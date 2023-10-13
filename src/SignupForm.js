@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
+/** Renders form to register user.
+ *
+ * Props:
+ * - signup(): function that submits form data to server (from parent)
+ *
+ * State:
+ * - signupData: { username, firstName, lastName, password, email, phone }
+ * - formErrors: ["error", ...]
+ *
+ * RoutesList -> SignupForm
+ */
 function SignupForm({ signup }) {
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-
+import React from "react";
 
 /**
  * ListingCard:
@@ -10,6 +10,7 @@
  *  {title:..., }
  *
  */
+
 function ListingCard({ listing }) {
   return (
     <div className="ListingCard">

@@ -1,16 +1,13 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-/** Class for API methods.
- *
- *  Includes:
- * - fetching token for user validaton
- * - posting listings
- */
+/** Class for API methods. */
 
 class SharebnbApi {
+  /** user token stored in localStorage. */
   static token = localStorage.getItem("token");
 
-  /** logins in user with username and password => { token } */
+  /** logins in user. { username, password } => { token } */
+
   static async login(user) {
     const { username, password } = user;
     const response = await fetch(`${BASE_URL}/auth/login`,
@@ -32,7 +29,11 @@ class SharebnbApi {
     return this.token;
   }
 
-  /** registers user with form data => { token } */
+  /** registers user.
+   *
+   *  { username, firstName, lastName, password, email, phone } => { token }
+   */
+
   static async register(user) {
     const { username,
       firstName,
@@ -64,7 +65,11 @@ class SharebnbApi {
     return this.token;
   }
 
-  /** Grabs user data with username */
+  /** Grabs user data with username.
+   *
+   * Returns user object { username, firstName, lastName, password, email, phone }
+   */
+
   static async getUser(username) {
     const response = await fetch(`${BASE_URL}/users/${username}`,
       {
@@ -83,6 +88,7 @@ class SharebnbApi {
    *
    * Returns [{ id, title, description, price, location, photoUrl, listedBy }, ...]
    */
+
   static async getListings(searchTerm) {
     let response, data;
     if (searchTerm) {
@@ -108,6 +114,7 @@ class SharebnbApi {
    * Returns listing
    *
    */
+
   static async getListing(id) {
     const response = await fetch(`${BASE_URL}/listings/${id}`);
     const data = await response.json();
@@ -122,6 +129,7 @@ class SharebnbApi {
    * Returns new listing
    *
    */
+
   static async addListing(formData) {
 
     const response = await fetch(`${BASE_URL}/listings/create`,
