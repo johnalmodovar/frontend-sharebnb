@@ -80,12 +80,19 @@ class SharebnbApi {
   }
 
   /** Grabs all listings from server.
-   * TODO: figure out how to pass down query with filter here
+   *
    * Returns [{ id, title, description, price, location, photoUrl, listedBy }, ...]
    */
-  static async getListings() {
-    const response = await fetch(`${BASE_URL}/listings`);
-    const data = await response.json();
+  static async getListings(searchTerm) {
+    let response, data;
+    if (searchTerm) {
+      let params = new URLSearchParams({ location: searchTerm });
+      response = await fetch(`${BASE_URL}/listings/${params}`);
+      data = await response.json();
+    } else {
+      response = await fetch(`${BASE_URL}/listings`);
+      data = await response.json();
+    }
 
     return data.listings;
   }

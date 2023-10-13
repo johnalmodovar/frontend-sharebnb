@@ -16,9 +16,9 @@ function ListingList() {
     fetchListings();
   }, []);
 
-  /** TODO: search function */
   async function search(searchTerm) {
-    //TODO: edit getListings to filter by whatever search term is
+    const data = await SharebnbApi.getListings(searchTerm);
+    setListings(data);
   }
 
   //TODO: can add spinner component
@@ -26,7 +26,7 @@ function ListingList() {
 
   return (
     <div className="ListingList">
-      {/* SearchForm component here */}
+      <SearchForm search={search} />
 
       <div>
         {listings.map(l => (

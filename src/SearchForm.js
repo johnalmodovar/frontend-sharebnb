@@ -7,7 +7,7 @@ import React, { useState } from "react";
  *
  * ListingList -> SearchForm
  */
-function SearchForm({ filter }) {
+function SearchForm({ search }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   /** Updates search input value */
@@ -19,7 +19,7 @@ function SearchForm({ filter }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     //TODO: parent function inside of ListingList
-    setSearchTerm("");
+    search(searchTerm);
   }
 
   return (

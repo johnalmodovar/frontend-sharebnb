@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 import userContext from './userContext';
 import FormData from "form-data";
+import { useNavigate, useNavigate } from 'react-router-dom';
 
 function ListingForm({ upload }) {
+  const useNavigate = useNavigate();
+
   const { currentUser } = useContext(userContext);
   const [listingData, setListingData] = useState({
     title: "",
@@ -12,6 +15,7 @@ function ListingForm({ upload }) {
     listedBy: currentUser.user.username
   });
   const [fileData, setFileData] = useState(null);
+  const [formErrors, setFormErrors] = useState([]);
 
   /** Update filedata input */
   function handleFileChange(evt) {
@@ -31,16 +35,22 @@ function ListingForm({ upload }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
 
-    const form = new FormData();
+    try {
+      const form = new FormData();
 
-    form.append("photoFile", fileData);
-    form.append("title", listingData.title);
-    form.append("description", listingData.description);
-    form.append("price", listingData.price);
-    form.append("location", listingData.location);
-    form.append("listedBy", listingData.listedBy);
+      form.append("photoFile", fileData);
+      form.append("title", listingData.title);
+      form.append("description", listingData.description);
+      form.append("price", listingData.price);
+      form.append("location", listingData.location);
+      form.append("listedBy", listingData.listedBy);
 
-    await upload(form);
+      await upload(form);
+      navigate("/");
+    } catch (err) {
+      let errors = err[0].message;
+      setFormErrors(errors);
+    }
   }
 
   return (
@@ -105,6 +115,7 @@ function ListingForm({ upload }) {
         </div>
         <button>Submit</button>
       </form>
+      {formErrors.length !== 0 && <Alert messages={formErrors} type={"danger"} />}
     </div>
   );
 
