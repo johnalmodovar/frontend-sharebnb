@@ -35,7 +35,7 @@ function ListingDetail() {
     <div className="ListingDetail">
       <Card className="ListingDetail-card">
         <CardBody className="ListingDetail-body">
-          <img src={listing.photoUrl} className="ListingDetail-img" />
+          <img src={listing.photoUrl} className="ListingDetail-img" width="500px" />
           <h2>{listing.title}</h2>
           <h4>{listing.location}</h4>
           <p>Host: {listing.listedBy}</p>

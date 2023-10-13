@@ -1,8 +1,9 @@
 .ListingCard {
-  max-height: fit-content;
-  max-width: fit-content;
+
   display: flex;
   margin: 10px;
+  width: 500px;
+  height: 400px;
 }
 
 .ListingCard:hover {
