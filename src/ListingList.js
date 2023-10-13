@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import SearchForm from "./SearchForm";
-import ListingDetail from "./ListingDetail";
 import SharebnbApi from "./api";
+import ListingCard from "./ListingCard";
 
 function ListingList() {
   const [listings, setListings] = useState([]);
@@ -33,7 +33,7 @@ function ListingList() {
           <Link
             to={`${l.id}`}
             key={l.id}>
-            {/* ListingCard here */}
+            <ListingCard listing={l} key={l.id} />
           </Link>))}
       </div>
     </div>

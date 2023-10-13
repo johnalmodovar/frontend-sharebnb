@@ -19,6 +19,7 @@ function SearchForm({ filter }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     //TODO: parent function inside of ListingList
+    setSearchTerm("");
   }
 
   return (

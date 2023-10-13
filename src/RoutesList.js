@@ -5,7 +5,7 @@ import Homepage from "./Homepage";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ListingList from "./ListingList";
-import ListDetail from "./ListingDetail";
+import ListingDetail from "./ListingDetail";
 import userContext from "./userContext";
 import { Navigate } from "react-router-dom";
 import ListingForm from "./ListingForm";
@@ -27,6 +27,8 @@ function RoutesList({ login, signup, upload }) {
     <div className="RoutesList">
       <Routes>
         <Route path="/" element={<Homepage login={login} signup={signup} />} />
+        <Route path="/listings" element={<ListingList />} />
+        <Route path="/listings/:id" element={<ListingDetail />} />
         <Route path="*" element={<Navigate />} />
 
         {currentUser

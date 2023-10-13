@@ -15,11 +15,11 @@ function Nav({ logout }) {
   return (
     <nav className="Nav">
       <Link className="home-btn" to="/">Sharebnb</Link>
+      <NavLink to="/listings">Listings</NavLink>
 
       {currentUser
         ? <div>
-          {/* Show All Listings */}
-          {/* Add Listing Form */}
+          <NavLink to="/upload">Add a Listing</NavLink>
           <Link to="/" onClick={logout}>
             {`Logout(${currentUser.user.username})`}
           </Link>
