@@ -1,0 +1,16 @@
+.ListingList-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ListingList-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ListingList a {
+  text-decoration: none;
+}

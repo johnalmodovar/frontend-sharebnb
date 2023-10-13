@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SharebnbApi from "./api";
+import { Card, CardBody } from "reactstrap";
+
+import "./ListingDetail.css";
 
 /** Renders component for a single listing.
  *
@@ -29,25 +32,27 @@ function ListingDetail() {
   if (!listing) return <h1>Loading...</h1>;
 
   return (
-    <>
-      <div className="ListDetail card">
-        <div className="card-body">
-          <img src={listing.photoUrl} />
+    <div className="ListingDetail">
+      <Card className="ListingDetail-card">
+        <CardBody className="ListingDetail-body">
+          <img src={listing.photoUrl} className="ListingDetail-img" />
           <h2>{listing.title}</h2>
           <h4>{listing.location}</h4>
           <p>Host: {listing.listedBy}</p>
-          <p>${listing.price}</p>
+          <p>Price: ${listing.price}</p>
           <p>Description: {listing.description}</p>
-        </div>
+        </CardBody>
         <div>
           <form>
             <h4>Message the host!</h4>
-            <input />
-            <button>Submit</button>
+            <textarea />
+            <div>
+              <button className="btn btn-success">Send</button>
+            </div>
           </form>
         </div>
-      </div>
-    </>
+      </Card>
+    </div>
   );
 
 }

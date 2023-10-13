@@ -28,11 +28,13 @@ function SearchForm({ search }) {
       <form className="d-flex" onSubmit={handleSubmit}>
         <input
           className="form-control mx-3"
-          placeholder="Enter Search Term..."
+          placeholder="Enter Location..."
           onChange={handleChange}
           value={searchTerm}
         />
-        <button className="btn btn-primary mt-2">Submit</button>
+        <div>
+          <button className="btn btn-success mt-2">Submit</button>
+        </div>
       </form>
     </div>
   );

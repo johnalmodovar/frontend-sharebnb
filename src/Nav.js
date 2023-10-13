@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import userContext from "./userContext";
+import "./Nav.css";
 
 /** Renders Nav component.
  *
@@ -15,19 +16,17 @@ function Nav({ logout }) {
 
   return (
     <nav className="Nav">
-      <Link className="home-btn" to="/">Sharebnb</Link>
-      <NavLink to="/listings">Listings</NavLink>
+      <Link className="Nav-heading" to="/">ShareBnB</Link>
+      <NavLink className="Nav-Link" to="/listings">Listings</NavLink>
 
       {currentUser
         ? <div>
-          <NavLink to="/upload">Add a Listing</NavLink>
-          <Link to="/" onClick={logout}>
-            {`Logout(${currentUser.user.username})`}
-          </Link>
+          <NavLink className="Nav-Link" to="/upload">Add a Listing</NavLink>
+          <Link className="Nav-Link" to="/" onClick={logout}>Logout</Link>
         </div>
         : <div>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/signup">Signup</NavLink>
+          <NavLink className="Nav-Link" to="/login">Login</NavLink>
+          <NavLink className="Nav-Link" to="/signup">Signup</NavLink>
         </div>}
     </nav>
   );

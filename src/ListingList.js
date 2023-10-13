@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './ListingList.css';
 
 import SearchForm from "./SearchForm";
 import SharebnbApi from "./api";
@@ -31,14 +32,16 @@ function ListingList() {
     setListings(data);
   }
 
-  //TODO: can add spinner component
   if (!listings) return <h1>Listings Loading...</h1>;
 
   return (
     <div className="ListingList">
-      <SearchForm search={search} />
+      <div className="ListingList-search">
+        <SearchForm search={search} />
+      </div>
 
-      <div>
+      <div className="ListingList-list">
+        {listings.length === 0 && <p>Sorry, no results found!</p>}
         {listings.map(l => (
           <Link
             to={`${l.id}`}

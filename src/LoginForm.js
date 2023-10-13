@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
+import { Card, CardBody, CardText } from "reactstrap";
+
+import "./LoginForm.css";
 
 /**
  * LoginForm: Renders for for user to log in
@@ -54,34 +57,42 @@ function LoginForm({ login }) {
   }
 
   return (
+
     <div className="LoginForm">
-      <h2>Log In</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="LoginForm-username">
-          <label htmlFor="username" className="form-label">Username</label>
-          <input
-            name="username"
-            value={loginData.username}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="LoginForm-password">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input
-            name="password"
-            value={loginData.password}
-            onChange={handleChange}
-            className="form-control"
-            required
-            type="password"
-          />
-        </div>
-        <button>Submit</button>
-      </form>
-      {formErrors.length !== 0 && <Alert messages={formErrors} type={"danger"} />}
+      <Card className="LoginForm-card">
+        <CardBody>
+          <h2>Log In</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="LoginForm-username">
+              <label htmlFor="username" className="form-label">Username</label>
+              <input
+                name="username"
+                value={loginData.username}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="LoginForm-password">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+                className="form-control"
+                required
+                type="password"
+              />
+            </div>
+            <button className="btn btn-success">Submit</button>
+          </form>
+        </CardBody>
+      </Card >
+      <div className="LoginForm-errors">
+        {formErrors.length !== 0 && <Alert messages={formErrors} type={"danger"} />}
+      </div>
     </div>
+
   );
 
 }
